@@ -36,21 +36,21 @@ const Semaforo = () => {
           <li
             id="red"
             className={`rounded-full size-16 ${
-              luz === "red" ? "bg-red-600" : "bg-red-950"
+              luz === "red" ? "bg-red-500" : "bg-red-950"
             }`}
             onClick={changeLuz}
           ></li>
           <li
             id="orange"
             className={`rounded-full size-16 ${
-              luz === "orange" ? "bg-orange-600" : "bg-orange-950"
+              luz === "orange" ? "bg-orange-500" : "bg-orange-950"
             }`}
             onClick={changeLuz}
           ></li>
           <li
             id="green"
             className={`rounded-full size-16 ${
-              luz === "green" ? "bg-green-600" : "bg-green-950"
+              luz === "green" ? "bg-green-500" : "bg-green-950"
             }`}
             onClick={changeLuz}
           ></li>
