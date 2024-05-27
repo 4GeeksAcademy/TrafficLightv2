@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from "react";
 import ButtonSwitch from "./ButtonSwitch";
+import Lights from "./Lights";
+import PurpleButton from "./PurpleButton";
 
 const Semaforo = () => {
   const [light, setLight] = useState("red");
+  const [showPurple, setShowPurple] = useState("hidden");
 
   const changeLight = (event) => {
     const color = event.target.id;
-    if (color === "orange") {
-      setLight("orange");
-    } else if (color === "green") {
-      setLight("green");
-    } else {
-      setLight("red");
-    }
+    setLight(color);
   };
 
   useEffect(() => {
     if (light === "orange" || light === "off") {
       const interval = setInterval(() => {
-        console.log("parpadeo");
-
-        if (light === "orange") {
-          setLight("off");
-        } else if (light === "off") {
-          setLight("orange");
-        }
+        setLight((prevLight) => (prevLight === "orange" ? "off" : "orange"));
       }, 1000);
       return () => clearInterval(interval);
     }
@@ -34,31 +25,29 @@ const Semaforo = () => {
     <>
       <div className="grid justify-center">
         <div className="bg-black h-20 w-5 justify-self-center"></div>
-        <ul className="bg-black p-4 grid gap-4 mx-10 h-64 w-32 justify-center rounded-xl">
-          <li
-            id="red"
-            className={`rounded-full size-16 ${
-              light === "red" ? "bg-red-500" : "bg-red-950"
-            }`}
-            onClick={changeLight}
-          ></li>
-          <li
-            id="orange"
-            className={`rounded-full size-16 ${
-              light === "orange" ? "bg-orange-500" : "bg-orange-950"
-            }`}
-            onClick={changeLight}
-          ></li>
-          <li
-            id="green"
-            className={`rounded-full size-16 ${
-              light === "green" ? "bg-green-500" : "bg-green-950"
-            }`}
-            onClick={changeLight}
-          ></li>
+        <ul className="bg-black p-4 grid gap-4 mx-10 h-fit w-32 justify-center rounded-xl">
+          <Lights lightColor={"red"} color={light} changeLight={changeLight} />
+          <Lights
+            lightColor={"orange"}
+            color={light}
+            changeLight={changeLight}
+          />
+          <Lights
+            lightColor={"green"}
+            color={light}
+            changeLight={changeLight}
+          />
+          <Lights
+            lightColor={"purple"}
+            color={light}
+            changeLight={changeLight}
+            showPurple={showPurple}
+            setShowPurple={setShowPurple}
+          />
         </ul>
       </div>
-      <ButtonSwitch light={light} setLight={setLight} />
+      <ButtonSwitch light={light} setLight={setLight} showPurple={showPurple}/>
+      <PurpleButton showPurple={showPurple} setShowPurple={setShowPurple} />
     </>
   );
 };
