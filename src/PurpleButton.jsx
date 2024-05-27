@@ -7,14 +7,12 @@ const PurpleButton = ({ showPurple, setShowPurple }) => {
     else setShowPurple("hidden");
   };
   return (
-    <div className="grid justify-center mt-2">
-      <button
-        className="bg-purple-800 text-white p-2 rounded-lg"
-        onClick={alternatePurple}
-      >
-        {showPurple === "hidden" ? "Mostrar luz lila" : "Ocultar luz lila"}
-      </button>
-    </div>
+    <button
+      className="bg-purple-800 text-white p-2 rounded-lg"
+      onClick={alternatePurple}
+    >
+      {showPurple === "hidden" ? "Mostrar luz purpura" : "Ocultar luz purpura"}
+    </button>
   );
 };
 

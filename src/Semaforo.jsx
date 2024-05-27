@@ -23,31 +23,45 @@ const Semaforo = () => {
 
   return (
     <>
-      <div className="grid justify-center">
-        <div className="bg-black h-20 w-5 justify-self-center"></div>
-        <ul className="bg-black p-4 grid gap-4 mx-10 h-fit w-32 justify-center rounded-xl">
-          <Lights lightColor={"red"} color={light} changeLight={changeLight} />
-          <Lights
-            lightColor={"orange"}
-            color={light}
-            changeLight={changeLight}
-          />
-          <Lights
-            lightColor={"green"}
-            color={light}
-            changeLight={changeLight}
-          />
-          <Lights
-            lightColor={"purple"}
-            color={light}
-            changeLight={changeLight}
+      <div className="flex justify-center">
+        <div className="mt-16">
+          <ButtonSwitch
+            light={light}
+            setLight={setLight}
             showPurple={showPurple}
-            setShowPurple={setShowPurple}
           />
-        </ul>
+        </div>
+        <div className="grid">
+          <div className="bg-black h-20 w-5 justify-self-center"></div>
+          <ul className="bg-black p-4 grid gap-4 mx-10 h-fit w-32 justify-center justify-self-center rounded-xl">
+            <Lights
+              lightColor={"red"}
+              color={light}
+              changeLight={changeLight}
+            />
+            <Lights
+              lightColor={"orange"}
+              color={light}
+              changeLight={changeLight}
+            />
+            <Lights
+              lightColor={"green"}
+              color={light}
+              changeLight={changeLight}
+            />
+            <Lights
+              lightColor={"purple"}
+              color={light}
+              changeLight={changeLight}
+              showPurple={showPurple}
+              setShowPurple={setShowPurple}
+            />
+          </ul>
+        </div>
+        <div className="mt-16">
+          <PurpleButton showPurple={showPurple} setShowPurple={setShowPurple} />
+        </div>
       </div>
-      <ButtonSwitch light={light} setLight={setLight} showPurple={showPurple}/>
-      <PurpleButton showPurple={showPurple} setShowPurple={setShowPurple} />
     </>
   );
 };

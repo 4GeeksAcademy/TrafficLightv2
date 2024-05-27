@@ -7,21 +7,20 @@ const ButtonSwitch = ({ light = "red", setLight, showPurple }) => {
       setLight("orange");
     } else if (light === "orange") {
       setLight("green");
-    } else if (light === "green" && showPurple=="") {
+    } else if (light === "green" && showPurple == "") {
       setLight("purple");
     } else {
       setLight("red");
     }
   };
 
-
   return (
     <div className="grid">
       <button
         onClick={alternate}
-        className="justify-self-center mt-5 bg-gray-900 p-2 rounded-lg text-gray-50"
+        className="bg-gray-900 p-2 rounded-lg text-gray-50"
       >
-        Alternar
+        Alternar luz
       </button>
     </div>
   );
