@@ -6,9 +6,10 @@ import PurpleButton from "./PurpleButton";
 const Semaforo = () => {
   const [light, setLight] = useState("red");
   const [showPurple, setShowPurple] = useState("hidden");
+  console.log(light)
 
   const changeLight = (event) => {
-    const color = event.target.id;
+    const color = event.target.name;
     setLight(color);
   };
 
@@ -33,7 +34,7 @@ const Semaforo = () => {
         </div>
         <div className="grid">
           <div className="bg-black h-20 w-5 justify-self-center"></div>
-          <ul className="bg-black p-4 grid gap-4 mx-10 h-fit w-32 justify-center justify-self-center rounded-xl">
+          <ul className="bg-black p-4 grid gap-4 mx-3 h-fit w-fit justify-center justify-self-center rounded-xl">
             <Lights
               lightColor={"red"}
               color={light}
@@ -59,7 +60,12 @@ const Semaforo = () => {
           </ul>
         </div>
         <div className="mt-16">
-          <PurpleButton showPurple={showPurple} setShowPurple={setShowPurple} />
+          <PurpleButton
+            light={light}
+            setLight={setLight}
+            showPurple={showPurple}
+            setShowPurple={setShowPurple}
+          />
         </div>
       </div>
     </>

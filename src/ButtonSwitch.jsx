@@ -5,7 +5,7 @@ const ButtonSwitch = ({ light = "red", setLight, showPurple }) => {
   const alternate = () => {
     if (light === "red") {
       setLight("orange");
-    } else if (light === "orange") {
+    } else if (light === "orange" || light === "off") {
       setLight("green");
     } else if (light === "green" && showPurple == "") {
       setLight("purple");
@@ -27,9 +27,9 @@ const ButtonSwitch = ({ light = "red", setLight, showPurple }) => {
 };
 
 ButtonSwitch.propTypes = {
-  light: PropTypes.string,
-  setLight: PropTypes.func,
-  showPurple: PropTypes.string,
+  light: PropTypes.string.isRequired,
+  setLight: PropTypes.func.isRequired,
+  showPurple: PropTypes.string.isRequired,
 };
 
 export default ButtonSwitch;

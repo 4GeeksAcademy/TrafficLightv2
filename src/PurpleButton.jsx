@@ -1,10 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const PurpleButton = ({ showPurple, setShowPurple }) => {
+const PurpleButton = ({ showPurple, setShowPurple, light, setLight }) => {
   const alternatePurple = () => {
     if (showPurple == "hidden") setShowPurple("");
-    else setShowPurple("hidden");
+    else {
+      setShowPurple("hidden");
+      if (light === "purple") {
+        setLight("red");
+      }
+    }
   };
   return (
     <button
@@ -17,8 +22,10 @@ const PurpleButton = ({ showPurple, setShowPurple }) => {
 };
 
 PurpleButton.propTypes = {
-  setShowPurple: PropTypes.func,
-  showPurple: PropTypes.string,
+  setShowPurple: PropTypes.func.isRequired,
+  showPurple: PropTypes.string.isRequired,
+  light: PropTypes.string.isRequired,
+  setLight: PropTypes.func.isRequired,
 };
 
 export default PurpleButton;
