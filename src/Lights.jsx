@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 const Lights = ({ color, lightColor, changeLight, showPurple }) => {
   return (
     <li
-      name={lightColor}
-      className={`rounded-full  size-16 ${
+      id={lightColor}
+      className={`rounded-full  size-16${
         showPurple === "hidden" ? `hidden` : ``
      } ${
         color === lightColor ? `bg-${lightColor}-500` : `bg-${lightColor}-950`

@@ -9,7 +9,7 @@ const Semaforo = () => {
   console.log(light)
 
   const changeLight = (event) => {
-    const color = event.target.name;
+    const color = event.target.id;
     setLight(color);
   };
 
