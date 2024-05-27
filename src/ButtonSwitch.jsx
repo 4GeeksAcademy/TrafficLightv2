@@ -1,13 +1,13 @@
 import React from "react";
 
-const ButtonSwitch = ({ luz = "red", setLuz }) => {
+const ButtonSwitch = ({ light = "red", setLight }) => {
   const alternate = () => {
-    if (luz === "red") {
-      setLuz("orange");
-    } else if (luz === "orange") {
-      setLuz("green");
+    if (light === "red") {
+      setLight("orange");
+    } else if (light === "orange") {
+      setLight("green");
     } else {
-      setLuz("red");
+      setLight("red");
     }
   };
 

@@ -2,31 +2,33 @@ import React, { useEffect, useState } from "react";
 import ButtonSwitch from "./ButtonSwitch";
 
 const Semaforo = () => {
-  const [luz, setLuz] = useState("red");
+  const [light, setLight] = useState("red");
 
-  const changeLuz = (event) => {
+  const changeLight = (event) => {
     const color = event.target.id;
     if (color === "orange") {
-      setLuz("orange");
+      setLight("orange");
     } else if (color === "green") {
-      setLuz("green");
+      setLight("green");
     } else {
-      setLuz("red");
+      setLight("red");
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("parpadeo");
+    if (light === "orange" || light === "off") {
+      const interval = setInterval(() => {
+        console.log("parpadeo");
 
-      if (luz === "orange") {
-        setLuz("off");
-      } else if (luz === "off") {
-        setLuz("orange");
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [luz]);
+        if (light === "orange") {
+          setLight("off");
+        } else if (light === "off") {
+          setLight("orange");
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [light]);
 
   return (
     <>
@@ -36,27 +38,27 @@ const Semaforo = () => {
           <li
             id="red"
             className={`rounded-full size-16 ${
-              luz === "red" ? "bg-red-500" : "bg-red-950"
+              light === "red" ? "bg-red-500" : "bg-red-950"
             }`}
-            onClick={changeLuz}
+            onClick={changeLight}
           ></li>
           <li
             id="orange"
             className={`rounded-full size-16 ${
-              luz === "orange" ? "bg-orange-500" : "bg-orange-950"
+              light === "orange" ? "bg-orange-500" : "bg-orange-950"
             }`}
-            onClick={changeLuz}
+            onClick={changeLight}
           ></li>
           <li
             id="green"
             className={`rounded-full size-16 ${
-              luz === "green" ? "bg-green-500" : "bg-green-950"
+              light === "green" ? "bg-green-500" : "bg-green-950"
             }`}
-            onClick={changeLuz}
+            onClick={changeLight}
           ></li>
         </ul>
       </div>
-      <ButtonSwitch luz={luz} setLuz={setLuz} />
+      <ButtonSwitch light={light} setLight={setLight} />
     </>
   );
 };
