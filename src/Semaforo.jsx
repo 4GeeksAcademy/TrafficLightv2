@@ -6,7 +6,7 @@ import PurpleButton from "./PurpleButton";
 const Semaforo = () => {
   const [light, setLight] = useState("red");
   const [showPurple, setShowPurple] = useState("hidden");
-  console.log(light)
+  console.log(light);
 
   const changeLight = (event) => {
     const color = event.target.id;
@@ -17,7 +17,7 @@ const Semaforo = () => {
     if (light === "orange" || light === "off") {
       const interval = setInterval(() => {
         setLight((prevLight) => (prevLight === "orange" ? "off" : "orange"));
-      }, 1000);
+      }, 500);
       return () => clearInterval(interval);
     }
   }, [light]);
