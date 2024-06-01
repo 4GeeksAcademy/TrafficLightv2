@@ -6,8 +6,6 @@ import PurpleButton from "./PurpleButton";
 const Semaforo = () => {
   const [light, setLight] = useState("red");
   const [showPurple, setShowPurple] = useState("hidden");
-  console.log(light);
-
   const changeLight = (event) => {
     const color = event.target.id;
     setLight(color);
@@ -68,6 +66,7 @@ const Semaforo = () => {
           />
         </div>
       </div>
+      
     </>
   );
 };

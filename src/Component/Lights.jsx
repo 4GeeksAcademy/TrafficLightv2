@@ -5,7 +5,7 @@ const Lights = ({ color, lightColor, changeLight, showPurple }) => {
   return (
     <li
       id={lightColor}
-      className={`rounded-full  size-16${
+      className={`rounded-full  size-16 ${
         showPurple === "hidden" ? `hidden` : ``
      } ${
         color === lightColor ? `bg-${lightColor}-500` : `bg-${lightColor}-950`
